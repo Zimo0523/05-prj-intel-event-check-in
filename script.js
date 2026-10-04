@@ -8,7 +8,7 @@ const attendanceGoal = 50;
 
 const checkInForm = document.getElementById("checkInForm");
 
-checkInform.addEventListener("submit", function (event) {
+checkInForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const name = document.getElementById("attendeeName").value;
