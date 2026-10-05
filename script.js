@@ -45,5 +45,8 @@ checkInForm.addEventListener("submit", function (event) {
   document.getElementById("greeting").textContent =
     "🎉 Welcome, " + name + " from " + teamName + "!";
 
+  document.getElementById("greeting").style.display = "block";
+  document.getElementById("greeting").classList.add("success-message");
+
   checkInForm.reset();
 });
