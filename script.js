@@ -47,6 +47,11 @@ checkInForm.addEventListener("submit", function (event) {
 
   document.getElementById("greeting").style.display = "block";
   document.getElementById("greeting").classList.add("success-message");
+  document.getElementById("greeting").classList.add("celebrate");
+
+  setTimeout(function () {
+    document.getElementById("greeting").classList.remove("celebrate");
+  }, 500);
 
   checkInForm.reset();
 });
