@@ -1,12 +1,20 @@
-let totalAttendees = 0;
+let totalAttendees = Number(localStorage.getItem("totalAttendees")) || 0;
 
-let waterCount = 0;
-let zeroCount = 0;
-let powerCount = 0;
+let waterCount = Number(localStorage.getItem("waterCount")) || 0;
+let zeroCount = Number(localStorage.getItem("zeroCount")) || 0;
+let powerCount = Number(localStorage.getItem("powerCount")) || 0;
 
 const attendanceGoal = 50;
 
 const checkInForm = document.getElementById("checkInForm");
+
+document.getElementById("attendeeCount").textContent = totalAttendees;
+document.getElementById("waterCount").textContent = waterCount;
+document.getElementById("zeroCount").textContent = zeroCount;
+document.getElementById("powerCount").textContent = powerCount;
+
+const savedProgressPercentage = (totalAttendees / attendanceGoal) * 100;
+document.getElementById("progressBar").style.width = savedProgressPercentage + "%";
 
 checkInForm.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -16,6 +24,8 @@ checkInForm.addEventListener("submit", function (event) {
 
   totalAttendees++;
 
+  localStorage.setItem("totalAttendees", totalAttendees);
+
   const progressPercentage = (totalAttendees / attendanceGoal) * 100;
 
   document.getElementById("attendeeCount").textContent = totalAttendees;
@@ -23,12 +33,15 @@ checkInForm.addEventListener("submit", function (event) {
 
   if (team === "water") {
     waterCount++;
+    localStorage.setItem("waterCount", waterCount);
     document.getElementById("waterCount").textContent = waterCount;
   } else if (team === "zero") {
     zeroCount++;
+    localStorage.setItem("zeroCount", zeroCount);
     document.getElementById("zeroCount").textContent = zeroCount;
   } else if (team === "power") {
     powerCount++;
+    localStorage.setItem("powerCount", powerCount);
     document.getElementById("powerCount").textContent = powerCount;
   }
 
