@@ -51,7 +51,7 @@ checkInForm.addEventListener("submit", function (event) {
 
   setTimeout(function () {
     document.getElementById("greeting").classList.remove("celebrate");
-  }, 500);
+  }, 800);
 
   checkInForm.reset();
 });
